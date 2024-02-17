@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Kabaddi Academy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .registration-container {
+            
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 60px;
+            text-align: center;
+        }
+        .registration-container h2 {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .attractive-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('home1.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .registration-container {
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 500px;
+            height:100vh;
+            text-align: center;
+            margin-left:80px;
+
+        }
+        .form-group {
+            text-align: left; /* Align labels to the right */
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .navcolor{
+            background-color: #25002f;
+            align-items: center;
+        }
+
+        .pad{
+            padding: 0 8px;
+        }
+        
+        .heading{
+            color: green;
+            font-size: 50px;
+        }
+
+        .item{
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="registration-container">
+        <h2 class="heading">Create an Account</h2>
+        <form action="Home.html"  onsubmit="return validateForm()">
+            <div class="form-group item">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <label id="nameerror" style="color:red; visibility: hidden;">Invalid Name</label>
+            </div>
+            <div class="form-group item">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <label id="emailerror" style="color:red; visibility: hidden;">Invalid Email</label>
+            </div>
+            <div class="form-group item">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <label id="passworderror" style="color:red; visibility: hidden;">Password must be 6 to 15 characters</label>
+            </div>
+            <div class="form-group item">
+                <label for="confirmpassword">Confirm Password</label>
+                <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm your password" required>
+                <label id="confirmpassworderror" style="color:red; visibility: hidden;">Password must be same</label>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+        <script>
+            function validateForm() {
+                var nameInput = document.getElementById("name");
+                const emailInput = document.getElementById("email");
+                var passwordInput = document.getElementById("password");
+                var confirmPasswordInput = document.getElementById("confirmpassword");
+    
+                if (nameInput.value.trim()=="") {
+                    //alert("Name must be less than 15 characters.");
+                    nameInput.style.border="solid 2px red";
+                    document.getElementById("nameerror").style.visibility="visible";
+                    return false;
+                }
+    
+                const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (!emailPattern.test(emailInput.value)) {
+                    //alert("Please enter a valid email address.");
+                    emailInput.style.border="solid 2px red";
+                    document.getElementById("emailerror").style.visibility="visible";
+                    return false;
+                }
+
+                if(passwordInput.value.trim().length<6 || passwordInput.value.trim().length>16){
+                    passwordInput.style.border="solid 2px red";
+                    document.getElementById("passworderror").style.visibility="visible";
+                    return false;
+                }
+    
+                if (passwordInput.value!== confirmPasswordInput.value) {
+                    //alert("Passwords do not match.");
+                    confirmPasswordInput.style.border="solid 2px red";
+                    document.getElementById("confirmpassworderror").style.visibility="visible";
+                    return false;
+                }
+    
+                return true;
+            }
+        </script>
+    
+        
+    </div>
+</body>
+</html>
